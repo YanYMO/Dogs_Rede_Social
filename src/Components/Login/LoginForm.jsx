@@ -32,7 +32,6 @@ const LoginForm = () => {
         <Input label="Usuário" type="text" name={username} />
         <Input label="Senha" type="password" name={password} />
         <Button>Entrar</Button>
-        <button>Entrar</button>
       </form>
       Login Form
       <Link to="/login/criar">Cadastro</Link>
