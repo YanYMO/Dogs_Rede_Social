@@ -1,8 +1,14 @@
 import React from "react";
 const types = {
   email: {
-    regex: /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i,
+    regex:
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
     message: "Preencha um email válido",
+  },
+  password: {
+    regex: /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
+    message:
+      "A senha precisa ter 1 caractere maiúsculo, 1 minúsculo, 1 número, 1 caractere especial e no mínimo 8 caracteres.",
   },
 };
 
