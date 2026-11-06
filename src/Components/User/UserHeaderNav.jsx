@@ -15,8 +15,6 @@ const UserHeaderNav = () => {
   const [mobileMenu, setMobileMenu] = React.useState(false);
   const { pathname } = useLocation();
 
-  console.log("mobile", mobile);
-
   function handleLogout() {
     userLogout();
     navigate("/login");
