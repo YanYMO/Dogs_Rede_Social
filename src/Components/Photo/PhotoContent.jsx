@@ -8,7 +8,7 @@ const PhotoContent = ({ data }) => {
 
   return (
     <div className={styles.photo}>
-      <img src={photo.src} alt={photo.title} />
+      <img className={styles.img} src={photo.src} alt={photo.title} />
       <div className={styles.details}>
         <div>
           <p className={styles.author}>
