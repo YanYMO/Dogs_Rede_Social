@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PhotoComments from "./PhotoComments";
 import styles from "./PhotoContent.module.css";
 
 const PhotoContent = ({ data }) => {
@@ -10,9 +11,9 @@ const PhotoContent = ({ data }) => {
       <img src={photo.src} alt={photo.title} />
       <div className={styles.details}>
         <div>
-          <p>
+          <p className={styles.author}>
             <Link to={`/perfil/${photo.autor}`}>@{photo.author}</Link>
-            <span className={styles.visualizacooes}>{photo.acessos}</span>
+            <span className={styles.visualizacoes}>{photo.acessos}</span>
           </p>
           <h1 className="title">
             <Link to={`/foto/${photo.id}`}>{photo.title}</Link>
@@ -23,7 +24,7 @@ const PhotoContent = ({ data }) => {
           </ul>
         </div>
       </div>
-      <photoComments id={photo.id} comments={comments} />
+      <PhotoComments id={photo.id} comments={comments} />
     </div>
   );
 };
