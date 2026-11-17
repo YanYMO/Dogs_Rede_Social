@@ -10,7 +10,7 @@ body {
   --type-first: Helvetica, Arial, sans-serif;
   --type-second: "Spectral", georgia;
   font-family: var(--type-first);
-  padding: 4rem 0;
+  padding: 4rem 0 0 0;
 }
 
 h1,
@@ -88,4 +88,14 @@ a {
     opacity: 1;
     transform: initial;
   }
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh + 10rem);
+}
+
+.appBody {
+  flex: 1;
 }
