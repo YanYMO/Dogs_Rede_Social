@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { PASSWORD_RESET } from "../../Api";
 import useFetch from "../../Hooks/useFetch";
 import useForm from "../../Hooks/useForm";
@@ -9,8 +9,9 @@ import Error from "../Helper/Error";
 import Head from "../Helper/Head";
 
 const LoginPasswordReset = () => {
-  const [login, setLogin] = React.useState("");
-  const [key, setKey] = React.useState("");
+  const [searchParams] = useSearchParams();
+  const login = searchParams.get("login") || "";
+  const key = searchParams.get("key") || "";
   const password = useForm("password");
   const { data, loading, error, request } = useFetch();
   const navigate = useNavigate();
@@ -27,14 +28,6 @@ const LoginPasswordReset = () => {
       if (response.ok) navigate("/login");
     }
   }
-
-  React.useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const key = params.get("key");
-    const login = params.get("login");
-    if (key) setKey(key);
-    if (login) setLogin(login);
-  }, []);
 
   return (
     <section className="animeLeft">

@@ -3,22 +3,21 @@ import { VictoryBar, VictoryChart, VictoryPie } from "victory";
 import styles from "./UserStatsGraphs.module.css";
 
 const UserStatsGraphs = ({ data }) => {
-  const [graph, setGraph] = React.useState([]);
-  const [total, setTotal] = React.useState(0);
-
-  React.useEffect(() => {
-    const graphData = data.map((item) => {
-      return {
+  const graph = React.useMemo(
+    () =>
+      data.map((item) => ({
         x: item.title,
         y: Number(item.acessos),
-      };
-    });
-
-    setTotal(
-      data.map(({ acessos }) => Number(acessos)).reduce((a, b) => a + b, 0),
-    );
-    setGraph(graphData);
-  }, [data]);
+      })),
+    [data],
+  );
+  const total = React.useMemo(
+    () =>
+      data
+        .map(({ acessos }) => Number(acessos))
+        .reduce((sum, acessos) => sum + acessos, 0),
+    [data],
+  );
 
   return (
     <section className={`${styles.graph} animeLeft`}>

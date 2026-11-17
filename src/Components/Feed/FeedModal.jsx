@@ -17,8 +17,8 @@ const FeedModal = ({ photo, setModalPhoto }) => {
 
   React.useEffect(() => {
     const { url, options } = PHOTO_GET(photo.id);
-    const { response, json } = request(url, options);
-  }, []);
+    request(url, options);
+  }, [photo.id, request]);
 
   return (
     <div className={styles.modal} onClick={handleOutsideClick}>
